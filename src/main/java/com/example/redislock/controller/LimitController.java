@@ -21,6 +21,7 @@ public class LimitController {
     private FunnelRateLimiter funnelRateLimiter;
     @RequestMapping("/limit")
     public Boolean limit(@RequestParam("userId") String userId, @RequestParam("actionKey") String actionKey) {
+
         return funnelRateLimiter.isActionAllow(userId, actionKey, 1, 10, 0.9f);
     }
 }    
